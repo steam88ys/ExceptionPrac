@@ -31,6 +31,10 @@ namespace ExceptionPrac
                 Console.WriteLine(ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
+            finally
+            {
+                Console.WriteLine("옳게 실행되는 예외가 발생하든 실행됨");
+            }
         }
     }
 }
