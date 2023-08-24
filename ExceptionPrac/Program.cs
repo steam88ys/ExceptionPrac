@@ -12,15 +12,24 @@ namespace ExceptionPrac
         {
             string[] array = { "가", "나" };
             Console.Write("숫자를 입력해주세요: ");
-            int input = int.Parse(Console.ReadLine());
-
-            if(input>=0 && input < array.Length)
+            try
             {
+                int input = int.Parse(Console.ReadLine());
                 Console.WriteLine("입력한 위치의 값은 '" + array[input] + "' 입니다.");
             }
-            else
+            catch (IndexOutOfRangeException ex)
             {
-                Console.WriteLine("올바른 인덱스를 입력해주세요");
+                Console.WriteLine("인덱스 범위를 벗어났습니다!");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("숫자를 입력해주세요!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.GetType());
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
         }
     }
